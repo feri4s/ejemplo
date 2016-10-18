@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="formExample">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FunMe!</title>
+<!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+
+<script src="controller.js"></script>
+<!-- <script>
+angular.module('formExample', [])
+.controller('ExampleController', ['$scope', function($scope) {
+	/*$scope.customFullscreen = false;
+	$scope.status = '  ';*/
+	$scope.newPage = function() {
+		open('crearEvento.html','top=300,left=300,width=300,height=300');
+		//windows.open('crearEvento.html', 'popup', 'width=600', 'heigh=400');
+		}
+	  /*$scope.showAdvanced = function(ev) {
+		    $mdDialog.show({
+		      controller: DialogController,
+		      templateUrl: 'crearEvento.html',
+		      parent: angular.element(document.body),
+		      targetEvent: ev,
+		      clickOutsideToClose:true,
+		      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+		    })
+		    .then(function(answer) {
+		      $scope.status = 'You said the information was "' + answer + '".';
+		    }, function() {
+		      $scope.status = 'You cancelled the dialog.';
+		    });
+		  };*/
+		  /* $scope.open = function () {
+			  windows.open('crearEvento.html', 'popup', 'width=600', 'heigh=400');
+			  /*var modalInstance = $modal.open({
+			  templateUrl: 'crearEvento.html',
+			  });*/
+			 //}
+	} ]);
+	
+/*function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+  }*/
+//});
+</script> -->
+
+<style>
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 450px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	padding-top: 20px;
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+</style>
+</head>
+
+
+<body>
+	<nav class="navbar navbar-inverse navbar-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+
+				<a class="navbar-brand" href="#">
+					<h1>FunMe!</h1>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-home"></span>
+							Inicio</a> <a href="#"><span class="glyphicon glyphicon-time"></span>
+							Mis Eventos</a></li>
+
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							Perfil</a> <a href="#"><span class="glyphicon glyphicon-log-out"></span>
+							Cerrar Sesión</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron">
+			<p>
+			<h2>Buscar eventos</h2>
+			</p>
+			<div ng-controller="ExampleController">
+				<form action="crearEvento.html" class="form-horizontal">
+
+					<div class="form-group">
+
+						<label class="control-label col-sm-2" for="localizacion">Localización:</label>
+						<div class="col-sm-10">
+							<input type="localizacion" ng-model="loc" name="localizacion"
+								class="form-control" id="localizacion"
+								placeholder="Introduce localización">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="interes">Intereses:</label>
+						<div class="col-sm-10">
+
+							<select class="form-control" ng-model="inte" id="interes"
+								name="interes">
+								<option>Deportes</option>
+								<option>Festivales</option>
+								<option>Museos</option>
+								<option>Otros</option>
+							</select>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label><input type="checkbox"> Recuérdame</label>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<a input type="submit" class="btn btn-info"
+								ng-click="newPage()" role="button"> <span
+								class="glyphicon glyphicon-search"></span> Buscar
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+</body>
+
+
+
+
+
+</html>
